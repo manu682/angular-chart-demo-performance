@@ -1,0 +1,13 @@
+.flex-container {
+  display: flex;
+  background-color: white;
+  flex-wrap: wrap;
+}
+
+.flex-item-left {
+  flex: 50%;
+}
+
+.flex-item-right {
+  flex: 50%;
+}

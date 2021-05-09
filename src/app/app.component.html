@@ -1,0 +1,22 @@
+<div class="flex-container">
+   <div class="flex-item-left">
+      <google-chart #chart title="Top 5 (SIM Downlink Throughput)" [type]="type" [data]="data" [columns]="columnNames" [options]="options"
+         [width]="width" [height]="height">
+      </google-chart>
+   </div>
+   <div class="flex-item-right">
+      <google-chart #chart title="Top 5 (SIM Uplink Throughput)" [type]="type" [data]="data" [columns]="columnNames" [options]="options"
+         [width]="width" [height]="height">
+      </google-chart>
+   </div>
+   <div class="flex-item-left">
+      <google-chart #chart title="Bottom 5 (SIM Downlink Throughput)" [type]="type" [data]="data" [columns]="columnNames" [options]="options"
+         [width]="width" [height]="height">
+      </google-chart>
+   </div>
+   <div class="flex-item-right">
+      <google-chart #chart title="Bottom 5 (SIM Uplink Throughput)" [type]="type" [data]="data" [columns]="columnNames" [options]="options"
+         [width]="width" [height]="height">
+      </google-chart>
+   </div>
+</div>
