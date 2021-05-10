@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartType } from 'angular-google-charts';
+import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -72,12 +73,28 @@ export class AppComponent implements OnInit {
   height = 300;
 
   ngOnInit() {
+    //Data points Limit Test
+    //this.generateData(0);
+
+    //Redraw Timing Test
+    this.redrawtest();
+  }
+
+  generateData(startAt: number) {
     let generatedData = [];
-    for (let i = 0; i < 500; i++) {
+    for (let i = 0; i < startAt + 500; i++) {
       let startTime = 1620133855650;
       let time = new Date(startTime + i + 10);
       generatedData.push([time, 1 + i, 2 + i, 3 + i, 4 + i, 5 + i, 'Test']);
     }
     this.data = generatedData;
+  }
+
+  redrawtest() {
+    let i = 0;
+    timer(5000).subscribe(() => {
+      this.generateData(500 + i + 30);
+      i++;
+    });
   }
 }
