@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ChartType } from 'angular-google-charts';
 
 @Component({
@@ -6,7 +6,7 @@ import { ChartType } from 'angular-google-charts';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'SIM Throughput';
   type = ChartType.LineChart;
   data = [
@@ -27,7 +27,7 @@ export class AppComponent {
     'My Sim 3',
     'My Sim 4',
     'My Sim 5',
-    { role: 'tooltip', type: 'string', p: { html: true } }
+    { role: 'tooltip', type: 'string', p: { html: true } },
   ];
   options = {
     hAxis: {
@@ -70,4 +70,14 @@ export class AppComponent {
   };
   width = 550;
   height = 300;
+
+  ngOnInit() {
+    let generatedData = [];
+    for (let i = 0; i < 500; i++) {
+      let startTime = 1620133855650;
+      let time = new Date(startTime + i + 10);
+      generatedData.push([time, 1 + i, 2 + i, 3 + i, 4 + i, 5 + i, 'Test']);
+    }
+    this.data = generatedData;
+  }
 }
